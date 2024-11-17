@@ -5,14 +5,11 @@ import (
 	"encoding/json"
 	"math/rand"
 	"net/http"
+
+	"github.com/someError/mservice-example/types"
 )
 
 type APIFunc func(ctx context.Context, w http.ResponseWriter, r *http.Request) error
-
-type PriceResponse struct {
-	Ticker string  `json:"ticker"`
-	Price  float64 `json:"price"`
-}
 
 type JSONAPIServer struct {
 	listenAddr string
@@ -54,7 +51,7 @@ func (s *JSONAPIServer) handleFetchPrice(ctx context.Context, w http.ResponseWri
 		return err
 	}
 
-	priceResponse := PriceResponse{
+	priceResponse := types.PriceResponse{
 		Ticker: ticker,
 		Price:  price,
 	}

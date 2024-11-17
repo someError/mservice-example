@@ -1,4 +1,4 @@
-module price-fetcher
+module github.com/someError/mservice-example
 
 go 1.21.6
 
